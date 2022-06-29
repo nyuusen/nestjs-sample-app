@@ -7,6 +7,7 @@ import {
   Put,
   Param,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import {
   CreateCatDto,
@@ -30,7 +31,7 @@ export class CatsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return `This action returns a #${id} cat`;
   }
 
